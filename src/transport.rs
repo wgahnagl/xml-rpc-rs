@@ -113,7 +113,7 @@ pub mod http {
         {
             // (we ignore this if the header is missing completely)
             match (content.type_(), content.subtype()) {
-                (mime::TEXT, mime::XML) => {}
+                (mime::TEXT, mime::XML | mime::HTML) => {}
                 (ty, sub) => {
                     return Err(
                         format!("expected Content-Type 'text/xml', got '{}/{}'", ty, sub).into(),
