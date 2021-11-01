@@ -342,6 +342,15 @@ impl From<Option<String>> for Value {
     }
 }
 
+impl<'a> From<Option<&'a str>> for Value {
+    fn from(other: Option<&'a str>) -> Self {
+        match other {
+            Some(x) => Value::String(x.to_string()),
+            None => Value::Nil,
+        }
+    }
+}
+
 impl From<Option<f64>> for Value {
     fn from(other: Option<f64>) -> Self {
         match other {
