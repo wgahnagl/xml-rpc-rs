@@ -306,6 +306,24 @@ impl From<Vec<u8>> for Value {
     }
 }
 
+impl From<Option<i64>> for Value {
+    fn from(other: Option<i64>) -> Self {
+        match other {
+            Some(x) => Value::Int64(x),
+            None => Value::Nil,
+        }
+    }
+}
+
+impl From<Option<i32>> for Value {
+    fn from(other: Option<i32>) -> Self {
+        match other {
+            Some(x) => Value::Int(x),
+            None => Value::Nil,
+        }
+    }
+}
+
 impl From<Option<bool>> for Value {
     fn from(other: Option<bool>) -> Self {
         match other {
